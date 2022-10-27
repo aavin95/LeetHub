@@ -5,13 +5,17 @@ public:
         if(nums.size() == 2){
             return ans;
         }
+        //num, index
+        unordered_map<int, int> map;
         
         for(int i = 0; i < nums.size(); i++){
-            for(int j = i + 1; j < nums.size(); j++){
-                if(nums[i] + nums[j] == target){
-                    ans[0] = i;
-                    ans[1] = j;
-                }
+            map[nums[i]] = i;
+        }
+        for(int i = 0; i < nums.size(); i++){
+            int temp = target - nums[i];
+            if(map.find(temp) != map.end() && map[temp] != i){
+                ans[0] = i;
+                ans[1] = map[temp];
             }
         }
         return ans;
