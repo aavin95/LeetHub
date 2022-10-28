@@ -11,7 +11,7 @@ public:
         int f1 = 0;
         int f2 = 1;
         int result = 0;
-        int curr = 0;
+        int curr;
         for(int i = 2; i <= n; i++){
             curr = f1 + f2;
             f1 = f2;
