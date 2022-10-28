@@ -11,9 +11,8 @@ public:
         int f1 = 0;
         int f2 = 1;
         int result = 0;
-        int curr;
         for(int i = 2; i <= n; i++){
-            curr = f1 + f2;
+            int curr = (f1 + f2);
             f1 = f2;
             f2 = curr;
             result = curr; 
