@@ -11,7 +11,7 @@ public:
             skip = true;
         }
         if(!isalnum(*last)){
-            last--;
+            last--;asd
             skip = true;
         }
         if(skip){
