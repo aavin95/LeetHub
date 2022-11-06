@@ -1,30 +1,28 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int first = 0;
-        int last = s.size() - 1;
-        
-        while(first < last){
-            if(isalnum(s[first]) == 0){
-                first++;
-                continue;
-            }
-            if(isalnum(s[last]) == 0){
-                last--;
-                continue;
-            }
-            if(isupper(s[first])){
-                s[first] = tolower(s[first]);
-            }
-            if(isupper(s[last])){
-                s[last] = tolower(s[last]);
-            }
-            if(s[last] != s[first]){
-                return false;
-            }
+    bool skip;
+    std::string::iterator first=s.begin();
+    std::string::iterator last=s.end()-1;
+    while(first < last){
+        skip = false;
+        if(!isalnum(*first)){
             first++;
-            last--;
+            skip = true;
         }
-        return true;
+        if(!isalnum(*last)){
+            last--;
+            skip = true;
+        }
+        if(skip){
+            continue;
+        }
+        if(tolower(*first) != tolower(*last)){
+            return false;
+        }
+        ++first;
+        --last;
+    }
+    return true;
     }
 };
